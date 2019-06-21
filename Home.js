@@ -5,22 +5,37 @@ class Login extends Component {
     static navigationOptions = {
         header: null
     }
-    
+    constructor(props) {
+      super(props);
+      this.state = {username: '',password: '',};
+  }
     render() {
         return (
-          <View style={styles.containerMain}>            
-            <View style={styles.box1}>
-              <Text style={styles.Text}>Selamat Datang Di CAPS!!</Text>
+          <View style={styles.containerMain}>
+            
+               
+            <View style={styles.box2}>
+              <View>
+              <Text style={styles.Judul}>     SELAMAT DATANG DI</Text>
+              <Text style={styles.Judul1}>                   CAPS!</Text>
+                <Image source={require("./img/caps.png")} style={styles.image} />
+              </View>
+            </View>            
+            <View style={styles.box4}>
+            <TouchableHighlight activeOpacity={0.5} style={styles.button2Style} onPress={() => this.props.navigation.navigate('DaftarDos')}>
+                    <Text style={styles.buttonText}>DAFTAR ABSEN</Text>
+                </TouchableHighlight>
+            <TouchableHighlight activeOpacity={0.5} style={styles.button2Style} onPress={() => this.props.navigation.navigate('Scanner')}>
+                    <Text style={styles.buttonText}>QR SCANNER</Text>
+                </TouchableHighlight>
+               
+                 </View> 
+            <View style={styles.box3}>
+            <TouchableHighlight activeOpacity={0.5} style={styles.button2Style} onPress={() => this.props.navigation.navigate('Login')}>
+                    <Text style={styles.buttonText}>LOGOUT</Text>
+                </TouchableHighlight>  
+                
             </View>
-            <TouchableHighlight activeOpacity={0.5} style={styles.button2Style}>
-              <Text style={styles.buttonText}>Daftar Absen</Text>
-            </TouchableHighlight>
-            <TouchableHighlight activeOpacity={0.5} style={styles.button3Style}>
-              <Text style={styles.buttonText}>QR Scanner</Text>
-            </TouchableHighlight>
-            <TouchableHighlight activeOpacity={0.5} style={styles.button2Style}>
-              <Text style={styles.buttonText}>Logout</Text>
-            </TouchableHighlight>
           </View>
           
         );
@@ -32,17 +47,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignItems: "center",
-    backgroundColor: 'lightblue',
-  },
-  header: {
-    backgroundColor: "green",
-    justifyContent: "center",
-    alignItems: "center",
-    paddingLeft: 100,
-    paddingRight: 100,
-    paddingBottom: 30, 
-    paddingTop: 100,
-    marginTop: 70
+    backgroundColor: 'yellow',
   },
   headerBar: {
     backgroundColor: "#880E4F",
@@ -56,23 +61,32 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   image: {
-    height: 200,
+    height: 300,
     width: 300,
+    marginBottom: 50,
     
   },
   Judul: {
     textAlign: "center",
     height: 40,
     width: "100%",
-    marginTop: 160,
-    color: "#5E2E62",
+    marginTop: 58,
+    color: "black",
+    fontSize: 25
+  },
+  Judul1: {
+    textAlign: "center",
+    height: 40,
+    width: "100%",
+    marginTop: 5,
+    color: "black",
     fontSize: 25
   },
   Text: {
     textAlign: "center",
     height: 40,
     width: "100%",
-    marginTop: 10,
+    marginTop: 400,
     color: "#5E2E62",
     fontSize: 18
   },
@@ -96,24 +110,27 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     justifyContent: 'center',
     backgroundColor: "white",
-    marginTop:80,
-    marginBottom: 20,
-    height: 90,
-    width: 200,
+    marginTop:2,
+    marginBottom: 2,
+    marginLeft: 7,
+    marginRight: 7,
+    height: 67,
+    width: 145,
     borderRadius: 5
   },
     button3Style: {
-      paddingTop: 20,
-      paddingBottom: 20,
-      paddingLeft: 20,
-      paddingRight: 20,
-      justifyContent: 'center',
-      backgroundColor: "white",
-      marginTop:20,
-      marginBottom: 20,
-      height: 90,
-      width: 200,
-      borderRadius: 5
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+    justifyContent: 'center',
+    backgroundColor: "white",
+    marginTop:20,
+    marginBottom: 4,
+    marginLeft: 300,
+    height: 50,
+    width: 50,
+    borderRadius: 100
   },
   buttonText: {
     textAlign: "center",
@@ -121,13 +138,13 @@ const styles = StyleSheet.create({
     width: "100%",
     marginTop: 10,
     color: "black",
-    fontSize: 18
+    fontSize: 14.2
   },
   box1: {
     backgroundColor: 'white',
-    marginTop:35,
-    height: 75,
-    width: 325,
+    marginTop:150,
+    height: 200,
+    width: 300,
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
@@ -137,7 +154,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 10,
     marginRight: 10,
-    marginTop: 40,
+    marginTop: 1,
     marginBottom:60,
     flexDirection: "column",
     alignItems: "center"
@@ -146,9 +163,18 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 10,
     marginRight: 10,
-    marginTop: 20,
-    marginBottom: 120,
+    marginTop: 5,
+    marginBottom: 60,
     flexDirection: "column",
+    alignItems: "center"
+  },
+  box4: {
+    flex: 1,
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 449,
+    marginBottom:30,
+    flexDirection: "row",
     alignItems: "center"
   },
   header: {

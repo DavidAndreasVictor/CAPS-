@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {View,Text,StyleSheet,Image,TouchableHighlight,TextInput, Alert} from "react-native";
-
 class Login extends Component {
     static navigationOptions = {
         header: null
@@ -9,16 +8,26 @@ class Login extends Component {
     render() {
         return (
           <View style={styles.containerMain}>
-            <TouchableHighlight activeOpacity={0.5} style={styles.button3Style} onPress={() => this.Login()}>
-              <Text style={styles.buttonText2}>Kembali</Text>
+            <TouchableHighlight activeOpacity={0.5} style={styles.button3Style} onPress={() => this.props.navigation.navigate('Home')}>
+              <Text style={styles.buttonText2}>BACK</Text>
             </TouchableHighlight>
             <View style={styles.box1}>
-              <Text style={styles.Text}>Absen Scanner</Text>
+              <Text style={styles.Text}>QR SCANNER</Text>
+              
             </View>
-            
-            <TouchableHighlight activeOpacity={0.5} style={styles.button2Style}>
-              <Text style={styles.buttonText}>Ready!</Text>
-            </TouchableHighlight>
+            <Text style={styles.buttonText}> </Text>
+
+           
+            <View style={styles.box4}>
+            <TouchableHighlight activeOpacity={0.5} style={styles.button2Style} onPress={() => this.Login()}>
+                    <Text style={styles.buttonText}>GALERI</Text>
+                </TouchableHighlight>
+            <TouchableHighlight activeOpacity={0.5} style={styles.button2Style} onPress={() => this.Login()}>
+                    <Text style={styles.buttonText}>KODE QR</Text>
+                </TouchableHighlight>
+               
+                 </View> 
+                
           </View>
           
         );
@@ -30,7 +39,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignItems: "center",
-    backgroundColor: 'lightblue',
+    backgroundColor: 'yellow',
   },
   header: {
     backgroundColor: "green",
@@ -95,17 +104,37 @@ const styles = StyleSheet.create({
     width: "45%",
     borderRadius: 5,
   },
-    button2Style: {
+  box4: {
+    flex: 1,
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 53,
+    marginBottom:30,
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  box5: {
+    flex: 1,
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 4,
+    marginBottom:48,
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  button2Style: {
     paddingTop: 20,
     paddingBottom: 20,
     paddingLeft: 20,
     paddingRight: 20,
     justifyContent: 'center',
     backgroundColor: "white",
-    marginTop:80,
+    marginTop:141,
     marginBottom: 20,
-    height: 90,
-    width: 200,
+    height: 30,
+    width: 130,
+    marginLeft: 7,
+    marginRight: 7,
     borderRadius: 5
   },
   button3Style: {
@@ -127,7 +156,7 @@ const styles = StyleSheet.create({
     width: "100%",
     marginTop: 10,
     color: "black",
-    fontSize: 18
+    fontSize: 12
   },
   buttonText2: {
     textAlign: "center",

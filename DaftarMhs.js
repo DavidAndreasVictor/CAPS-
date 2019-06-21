@@ -1,47 +1,32 @@
 import React, { Component } from "react";
 import {View,Text,StyleSheet,Image,TouchableHighlight,TextInput, Alert} from "react-native";
-
 class Login extends Component {
     static navigationOptions = {
         header: null
     }
-    constructor(props) {
-      super(props);
-      this.state = {username: '',password: '',};
-  }
-  Login= () =>{
-    if(this.state.username == 'David' && this.state.password == 'passwordaja'){
-      this.props.navigation.navigate('Home')
-    }else{
-      Alert.alert('Masukan username dan password dengan keyboard yang tersedia!');
-    }
-  }
+    
     render() {
         return (
           <View style={styles.containerMain}>
-            <TouchableHighlight activeOpacity={0.5} style={styles.button3Style} onPress={() => this.props.navigation.navigate('About')}>
-                    <Text style={styles.buttonText}>?</Text>
-                </TouchableHighlight>
-            <View style={styles.box2}>
-              <View>
-              <Text style={styles.Judul}>     SELAMAT DATANG DI</Text>
-              
-                <Image source={require("./img/caps.png")} style={styles.image} />
-              </View>
-            </View>            
-              <Text style={styles.Judul1}>ABSEN DOSEN!</Text>
-             
-                <View style={styles.textInput}>
-                    <TextInput style={{textAlign: 'left', color: 'black'}} placeholder=" Username " onChangeText={(username) => this.setState({ username })}/>
-                </View>
-                <View style={styles.textInput}>
-                    <TextInput style={{textAlign: 'left', color: 'black'}} placeholder=" Password "onChangeText={(password) => this.setState({ password })}/>
-                </View>
-                <TouchableHighlight activeOpacity={0.5} style={styles.button2Style} onPress={() => this.Login()}>
-                    <Text style={styles.buttonText}>Login</Text>
-                </TouchableHighlight>
-            <View style={styles.box3}>
-                
+            <TouchableHighlight activeOpacity={0.5} style={styles.button3Style} onPress={() => this.props.navigation.navigate('Home')}>
+              <Text style={styles.buttonText2}>Kembali</Text>
+            </TouchableHighlight>
+            <View style={styles.box1}>
+              <Text style={styles.Text}>Absen Scanner</Text>
+            </View>
+            <View style={styles.box4}>
+              <TouchableHighlight activeOpacity={0.5} style={styles.button2Style}>
+                <Text style={styles.buttonText}>Tambah</Text>
+              </TouchableHighlight>
+              <TouchableHighlight activeOpacity={0.5} style={styles.button2Style}>
+                <Text style={styles.buttonText}>Edit</Text>
+              </TouchableHighlight>
+              <TouchableHighlight activeOpacity={0.5} style={styles.button2Style}>
+                <Text style={styles.buttonText}>Hapus</Text>
+              </TouchableHighlight>
+              <TouchableHighlight activeOpacity={0.5} style={styles.button2Style}>
+                <Text style={styles.buttonText}>Hapus Semua</Text>
+              </TouchableHighlight>
             </View>
           </View>
           
@@ -54,7 +39,17 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignItems: "center",
-    backgroundColor: 'yellow',
+    backgroundColor: 'lightblue',
+  },
+  header: {
+    backgroundColor: "green",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingLeft: 100,
+    paddingRight: 100,
+    paddingBottom: 30, 
+    paddingTop: 100,
+    marginTop: 70
   },
   headerBar: {
     backgroundColor: "#880E4F",
@@ -68,34 +63,33 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   image: {
-    height: 300,
+    height: 200,
     width: 300,
-    marginBottom: 50,
     
   },
   Judul: {
     textAlign: "center",
     height: 40,
     width: "100%",
-    marginTop: 5,
-    color: "black",
-    fontSize: 25
-  },
-  Judul1: {
-    textAlign: "center",
-    height: 40,
-    width: "100%",
-    marginTop: 230,
-    color: "black",
+    marginTop: 160,
+    color: "#5E2E62",
     fontSize: 25
   },
   Text: {
     textAlign: "center",
     height: 40,
     width: "100%",
-    marginTop: 400,
+    marginTop: 10,
     color: "#5E2E62",
     fontSize: 18
+  },
+  Text2: {
+    textAlign: "center",
+    height: 40,
+    width: "100%",
+    marginTop: 10,
+    color: "#5E2E62",
+    fontSize: 10
   },
   buttonStyle: {
     paddingTop: 20,
@@ -110,20 +104,28 @@ const styles = StyleSheet.create({
     width: "45%",
     borderRadius: 5,
   },
-    button2Style: {
+  box4: {
+    width: "100%",
+    paddingTop: 20,
+    marginTop: 10,
+    marginLeft: 2,
+    justifyContent: "space-between",
+    flexDirection: "row"
+},
+  button2Style: {
     paddingTop: 20,
     paddingBottom: 20,
     paddingLeft: 20,
     paddingRight: 20,
     justifyContent: 'center',
     backgroundColor: "white",
-    marginTop:20,
+    marginTop:80,
     marginBottom: 20,
-    height: 40,
-    width: 150,
+    height: 30,
+    width: 85,
     borderRadius: 5
   },
-    button3Style: {
+  button3Style: {
     paddingTop: 20,
     paddingBottom: 20,
     paddingLeft: 20,
@@ -131,11 +133,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: "white",
     marginTop:20,
-    marginBottom: 4,
-    marginLeft: 300,
-    height: 50,
-    width: 50,
-    borderRadius: 100
+    marginRight: 250,
+    height: 25,
+    width: 100,
+    borderRadius: 5
   },
   buttonText: {
     textAlign: "center",
@@ -143,13 +144,21 @@ const styles = StyleSheet.create({
     width: "100%",
     marginTop: 10,
     color: "black",
-    fontSize: 18
+    fontSize: 12
+  },
+  buttonText2: {
+    textAlign: "center",
+    height: 40,
+    width: "100%",
+    marginTop: 10,
+    color: "black",
+    fontSize: 12
   },
   box1: {
     backgroundColor: 'white',
-    marginTop:150,
-    height: 200,
-    width: 300,
+    marginTop:35,
+    height: 75,
+    width: 325,
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
@@ -159,7 +168,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 10,
     marginRight: 10,
-    marginTop: 1,
+    marginTop: 40,
     marginBottom:60,
     flexDirection: "column",
     alignItems: "center"

@@ -1,39 +1,25 @@
 import React, { Component } from "react";
 import {View,Text,StyleSheet,Image,TouchableHighlight,TextInput, Alert} from "react-native";
 
-class Login extends Component {
+class About extends Component {
     static navigationOptions = {
         header: null
     }
-    constructor(props) {
-      super(props);
-      this.state = {username: '',password: '',};
-  }
-  Login= () =>{
-    if(this.state.username == 'david' && this.state.password == '123'){
-      this.props.navigation.navigate('Usia')
-    }else{
-      Alert.alert('Masukan username dan password dengan benar!');
-    }
-  }
-    render() {
+      render() {
         return (
           <View style={styles.containerMain}>
-            <View style={styles.box2}>
+            <View style={styles.box4}>
               <View>
-                <Image source={require("./img/IMG_9851.jpg")} style={styles.image} />
+                <Image source={require("./img/kuut.jpg")} style={styles.image} />
+
               </View>              
             </View>
-            <Text style={styles.Text2}>David Andreas Victor</Text>            
-            <Text style={styles.Judul}>CAPS!!</Text>
-            <Text style={styles.Text}>Absen Dosen</Text>
-            <View style={styles.box1}>
-              <Text style={styles.buttonText}>paragraf disini!</Text>
-            </View>   
-            <TouchableHighlight activeOpacity={0.5} style={styles.button2Style} onPress={() => this.Login()}>
+            
+            <TouchableHighlight activeOpacity={0.5} style={styles.button2Style} onPress={() => this.props.navigation.navigate('Login')}>
               <Text style={styles.buttonText}>Kembali</Text>
             </TouchableHighlight>           
           </View>
+          
           
         );
     }
@@ -58,8 +44,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   image: {
-    height: 150,
-    width: 150,
+    height: 120,
+    width: 320,
     paddingTop: 50
   },
   Judul: {
@@ -128,7 +114,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     height: 40,
     width: "100%",
-    marginTop: 10,
     color: "#FFFFFF",
     fontSize: 18
   },
@@ -159,6 +144,15 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center"
   },
+  box4: {
+    flex: 1,
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 53,
+    marginBottom:30,
+    flexDirection: "row",
+    alignItems: "center"
+  },
   header: {
     backgroundColor: "#880E4F",
     justifyContent: "center",
@@ -185,4 +179,4 @@ textInput: {
     borderRadius: 5,
 },
 });
-export default Login;
+export default About;
